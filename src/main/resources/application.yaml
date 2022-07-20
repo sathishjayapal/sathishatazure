@@ -23,3 +23,7 @@ info:
     website: https://sathishjayapal.me
   app:
     encoding: @project.build.sourceEncoding@
+spring:
+  jmx:
+    enabled: false
+
