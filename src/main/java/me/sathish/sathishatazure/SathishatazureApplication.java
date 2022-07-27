@@ -1,13 +1,15 @@
 package me.sathish.sathishatazure;
 
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 import me.sathish.sathishatazure.configprops.ApplicationProperties;
-import org.springframework.beans.factory.annotation.Autowired;
+import me.sathish.sathishatazure.domain.data.Road;
+import me.sathish.sathishatazure.domain.service.RoadService;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.ConfigurationPropertiesScan;
-import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.stereotype.Component;
 
 @SpringBootApplication
@@ -20,15 +22,19 @@ public class SathishatazureApplication {
 }
 
 @Component
+@AllArgsConstructor
+
 class AppInitializer implements CommandLineRunner {
     @Value("${info.myapp.name}")
     private String appVersion;
-    @Autowired
-    ApplicationProperties applicationInformation;
+    private final ApplicationProperties applicationInformation;
+    private final RoadService roadService;
 
     @Override
     public void run(String... args) throws Exception {
         System.out.println("The property value is " + appVersion);
         System.out.println("The application information is " + applicationInformation.getMyapp().getVersion());
+        roadService.createRoad(new Road(null, "Infinite Loop", "Cuppertino", "CA"));
+        roadService.createRoad(new Road(null, "Apple Circle", "Cuppertino", "CA"));
     }
 }

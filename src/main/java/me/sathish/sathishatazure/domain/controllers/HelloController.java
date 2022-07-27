@@ -1,4 +1,4 @@
-package me.sathish.sathishatazure.controllers;
+package me.sathish.sathishatazure.domain.controllers;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,4 +16,5 @@ public class HelloController {
         logger.debug("Coming to index");
         return "Greetings from Azure Spring Cloud!";
     }
+
 }
