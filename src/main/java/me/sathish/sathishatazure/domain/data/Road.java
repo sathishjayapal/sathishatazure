@@ -6,15 +6,13 @@ import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 
 @Entity
-@Setter
-@Getter
+@Data
 @Table(name = "roads")
 @NoArgsConstructor
 @AllArgsConstructor
 public class Road {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id", nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(nullable = false, unique = true)
     @NotEmpty(message = "Name cannot be empty")

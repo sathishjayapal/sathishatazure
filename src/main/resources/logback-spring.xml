@@ -22,5 +22,5 @@
     </springProfile>
 
     <logger name="me.sathish" level="DEBUG"/>
-    <logger name="org.springframework" level="TRACE"/>
+    <logger name="org.springframework" level="DEBUG"/>
 </configuration>

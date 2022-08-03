@@ -26,4 +26,10 @@ info:
 spring:
   jmx:
     enabled: false
+  jpa:
+    show-sql: true
+    generate-ddl: true
+  h2:
+    console:
+      enabled: true
 
