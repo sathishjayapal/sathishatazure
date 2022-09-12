@@ -29,6 +29,8 @@ spring:
   jpa:
     show-sql: true
     generate-ddl: true
+    hibernate:
+      ddl-auto: update
   h2:
     console:
       enabled: true

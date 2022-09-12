@@ -1,4 +1,4 @@
-package me.sathish.sathishatazure.domain.data;
+package me.sathish.sathishatazure.domain.road.data;
 
 import lombok.*;
 

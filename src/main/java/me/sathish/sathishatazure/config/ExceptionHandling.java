@@ -1,6 +1,6 @@
 package me.sathish.sathishatazure.config;
 
-import me.sathish.sathishatazure.domain.Exception.RoadDataException;
+import me.sathish.sathishatazure.domain.road.Exception.RoadDataException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
