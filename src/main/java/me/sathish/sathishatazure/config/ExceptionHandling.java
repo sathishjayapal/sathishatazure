@@ -1,6 +1,6 @@
 package me.sathish.sathishatazure.config;
 
-import me.sathish.sathishatazure.domain.road.Exception.RoadDataException;
+import me.sathish.sathishatazure.domain.JobApplication.Exception.JobApplicationDataException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
@@ -13,9 +13,9 @@ import org.zalando.problem.spring.web.advice.ProblemHandling;
 @RestControllerAdvice
 class ExceptionHandling implements ProblemHandling {
     @ExceptionHandler
-    public ResponseEntity<Problem> handle(RoadDataException e, NativeWebRequest request) {
+    public ResponseEntity<Problem> handle(JobApplicationDataException e, NativeWebRequest request) {
         ThrowableProblem problem = Problem.builder().withStatus(Status.NOT_FOUND)
-                .withTitle("Road Not Found")
+                .withTitle("JobApplication Not Found")
                 .withDetail(e.getMessage())
                 .build();
         return create(problem, request);

@@ -17,7 +17,7 @@ management:
       enabled: true
 info:
   myapp:
-    name: SathishAppForAzure
+    name: JobTrackerApi
     version: 1.0.0
     author: dotsky
     website: https://sathishjayapal.me
@@ -30,8 +30,12 @@ spring:
     show-sql: true
     generate-ddl: true
     hibernate:
-      ddl-auto: update
+      ddl-auto: validate
   h2:
     console:
       enabled: true
+  flyway:
+    locations=classpath:/db/migration/{vendor}:
+    baseline-on-migrate: true
+
 

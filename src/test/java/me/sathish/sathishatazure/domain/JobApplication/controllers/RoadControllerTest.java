@@ -1,8 +1,6 @@
-package me.sathish.sathishatazure.domain.road.controllers;
+package me.sathish.sathishatazure.domain.JobApplication.controllers;
 
-import me.sathish.sathishatazure.domain.road.data.Road;
-import me.sathish.sathishatazure.domain.road.repo.RoadRepository;
-import me.sathish.sathishatazure.domain.road.service.RoadService;
+import me.sathish.sathishatazure.domain.JobApplication.service.JobApplicationService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -23,7 +21,7 @@ class RoadControllerTest {
     private MockMvc mvc;
 
     @Autowired
-    RoadService roadService;
+    JobApplicationService roadService;
 
     @Test
     void index() {

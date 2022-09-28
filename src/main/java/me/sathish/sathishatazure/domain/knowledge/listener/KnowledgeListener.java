@@ -2,7 +2,7 @@ package me.sathish.sathishatazure.domain.knowledge.listener;
 
 import lombok.RequiredArgsConstructor;
 import me.sathish.sathishatazure.domain.knowledge.service.KowledgeService;
-import me.sathish.sathishatazure.domain.road.events.RoadRegisteredEvent;
+import me.sathish.sathishatazure.domain.JobApplication.events.JobAppliedEvent;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.event.TransactionalEventListener;
@@ -13,12 +13,12 @@ public class KnowledgeListener {
     private final KowledgeService knowledgeService;
 
     @TransactionalEventListener
-    public void onRegisterEvent(RoadRegisteredEvent event) {
-        knowledgeService.sendRoadRegisteredKnowledge(event.getRegisteredRoad());
+    public void onRegisterEvent(JobAppliedEvent event) {
+        knowledgeService.sendRoadRegisteredKnowledge(event.getJobApplication());
     }
 
     @EventListener
-    public void onCustomerRemovedEvent(RoadRegisteredEvent event) {
-        knowledgeService.sendRoadRemovedKnowledge(event.getRegisteredRoad());
+    public void onCustomerRemovedEvent(JobAppliedEvent event) {
+        knowledgeService.sendRoadRemovedKnowledge(event.getJobApplication());
     }
 }

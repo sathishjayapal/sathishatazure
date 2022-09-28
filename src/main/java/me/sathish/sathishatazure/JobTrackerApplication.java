@@ -2,9 +2,7 @@ package me.sathish.sathishatazure;
 
 import lombok.AllArgsConstructor;
 import me.sathish.sathishatazure.configprops.ApplicationProperties;
-import me.sathish.sathishatazure.domain.road.data.Road;
-import me.sathish.sathishatazure.domain.road.service.RoadService;
-import org.springframework.beans.factory.annotation.Value;
+import me.sathish.sathishatazure.domain.JobApplication.service.JobApplicationService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -14,9 +12,9 @@ import org.springframework.stereotype.Component;
 //Boot Should have this annotation to scan the ApplicationProperties
 @ConfigurationPropertiesScan("me.sathish.sathishatazure.configprops")
 @SpringBootApplication
-public class SathishatazureApplication {
+public class JobTrackerApplication {
     public static void main(String[] args) {
-        SpringApplication.run(SathishatazureApplication.class, args);
+        SpringApplication.run(JobTrackerApplication.class, args);
     }
 }
 
@@ -26,13 +24,10 @@ public class SathishatazureApplication {
 class AppInitializer implements CommandLineRunner {
 
     private final ApplicationProperties applicationInformation;
-    private final RoadService roadService;
+    private final JobApplicationService roadService;
 
     @Override
     public void run(String... args) throws Exception {
-//        System.out.println("The property value is " + appVersion);
         System.out.println("The application information is " + applicationInformation.getMyapp().getVersion());
-        roadService.createRoad(new Road(null, "Infinite Loop", "Cupertino", "CA"));
-        roadService.createRoad(new Road(null, "Apple CircleLet Le", "Cupertino", "CA"));
     }
 }
