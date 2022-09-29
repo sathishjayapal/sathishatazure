@@ -2,6 +2,7 @@ package me.sathish.sathishatazure.domain.JobApplication.controllers;
 
 import lombok.AllArgsConstructor;
 import me.sathish.sathishatazure.domain.JobApplication.data.JobApplication;
+import me.sathish.sathishatazure.domain.JobApplication.data.JobApplicationDTO;
 import me.sathish.sathishatazure.domain.JobApplication.service.JobApplicationService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -9,7 +10,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.util.List;
 
 @RestController
 @AllArgsConstructor
@@ -19,10 +19,14 @@ public class JobApplicationController {
     JobApplicationService jobApplicationService;
 
     @GetMapping
-    public List<JobApplication> index() {
+    public JobApplicationDTO index(Integer page) {
+        if (page == null)
+            page = 0;
+        else
+            page = page < 1 ? 0 : page - 1;
         logger.debug("Coming to index");
-        List<JobApplication> allAppliedJobs = jobApplicationService.getAllAppliedJobs();
-        System.out.println("All jobs are " + allAppliedJobs.size());
+        JobApplicationDTO allAppliedJobs = jobApplicationService.getAllAppliedJobs(page);
+        System.out.println("All jobs are " + allAppliedJobs);
         return allAppliedJobs;
     }
 
