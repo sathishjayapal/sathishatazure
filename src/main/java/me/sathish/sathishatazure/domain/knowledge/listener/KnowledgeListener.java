@@ -1,8 +1,8 @@
 package me.sathish.sathishatazure.domain.knowledge.listener;
 
 import lombok.RequiredArgsConstructor;
-import me.sathish.sathishatazure.domain.knowledge.service.KowledgeService;
 import me.sathish.sathishatazure.domain.JobApplication.events.JobAppliedEvent;
+import me.sathish.sathishatazure.domain.knowledge.service.KowledgeService;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.event.TransactionalEventListener;

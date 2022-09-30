@@ -2,7 +2,7 @@ package me.sathish.sathishatazure.domain.JobApplication.controllers;
 
 import lombok.AllArgsConstructor;
 import me.sathish.sathishatazure.domain.JobApplication.data.JobApplication;
-import me.sathish.sathishatazure.domain.JobApplication.data.JobApplicationDTO;
+import me.sathish.sathishatazure.domain.JobApplication.data.JobApplicationDTOs;
 import me.sathish.sathishatazure.domain.JobApplication.service.JobApplicationService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,13 +19,13 @@ public class JobApplicationController {
     JobApplicationService jobApplicationService;
 
     @GetMapping
-    public JobApplicationDTO index(Integer page) {
+    public JobApplicationDTOs index(Integer page) {
         if (page == null)
             page = 0;
         else
             page = page < 1 ? 0 : page - 1;
         logger.debug("Coming to index");
-        JobApplicationDTO allAppliedJobs = jobApplicationService.getAllAppliedJobs(page);
+        JobApplicationDTOs allAppliedJobs = jobApplicationService.getAllAppliedJobs(page);
         System.out.println("All jobs are " + allAppliedJobs);
         return allAppliedJobs;
     }
